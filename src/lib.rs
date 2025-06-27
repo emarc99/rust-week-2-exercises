@@ -47,7 +47,6 @@ pub fn classify_script(script: &[u8]) -> ScriptType {
     }
 }
 
-// TODO: complete Outpoint tuple struct
 pub struct Outpoint(
     pub String, // txid
     pub u32,    // vout
