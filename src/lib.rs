@@ -1,7 +1,8 @@
 use hex::{decode, encode};
 
 pub fn decode_hex(hex_str: &str) -> Result<Vec<u8>, String> {
-decode(hex_str).map_err(|e| e.to_string())}
+    decode(hex_str).map_err(|e| e.to_string())
+}
 
 pub fn to_big_endian(bytes: &[u8]) -> Vec<u8> {
     let mut reversed = bytes.to_vec();
@@ -14,7 +15,7 @@ pub fn bytes_to_hex(bytes: &[u8]) -> String {
 }
 
 pub fn hex_to_bytes(hex: &str) -> Result<Vec<u8>, hex::FromHexError> {
-    decode(hex) 
+    decode(hex)
 }
 
 pub fn swap_endian_u32(num: u32) -> [u8; 4] {
@@ -53,7 +54,7 @@ pub struct Outpoint(
 );
 
 pub fn read_pushdata(script: &[u8]) -> &[u8] {
-&script[2..]    
+    &script[2..]
 }
 
 pub trait Wallet {
@@ -71,7 +72,7 @@ impl Wallet for TestWallet {
 }
 
 pub fn apply_fee(balance: &mut u64, fee: u64) {
-*balance = balance.saturating_sub(fee);
+    *balance = balance.saturating_sub(fee);
 }
 
 pub fn move_txid(txid: String) -> String {
@@ -103,5 +104,5 @@ pub struct UTXO {
 }
 
 pub fn consume_utxo(utxo: UTXO) -> UTXO {
-utxo
+    utxo
 }
